@@ -5,6 +5,7 @@
 # Reference for gitignore creation: https://youtu.be/XshDgPGbVKQ?si=NABsR4-LEwChz2TK
 ############################################################
 data/*.txt
+data/*.gtf_withproteinids
 outputs/*.txt
 outputs/*.csv
 outputs/*.h5ad
