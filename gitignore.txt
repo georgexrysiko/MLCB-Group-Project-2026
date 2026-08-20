@@ -7,4 +7,3 @@
 data/*.txt
 data/*.gtf_withproteinids
 outputs/*
-!outputs/.gitkeep
