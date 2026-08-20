@@ -6,7 +6,5 @@
 ############################################################
 data/*.txt
 data/*.gtf_withproteinids
-outputs/*.txt
-outputs/*.csv
-outputs/*.h5ad
-outputs/*.npz
+outputs/*
+!outputs/.gitkeep
