@@ -1,0 +1,2 @@
+Feature Set,Model,Primary Sample AUC (all),PR-AUC,F1,Balanced Acc.,MCC,Brier,Sensitivity,Specificity,Sample AUC (non-mixed),Patient AUC (non-mixed),Bootstrap Mean (primary),CI Lower (95%),CI Upper (95%),N Samples,N Non-mixed Patients,N Mixed Patients
+hvg_genes,XGBoost,0.7324478178368121,0.6061821597369321,0.625,0.713472485768501,0.44052910931422307,0.24244381312078941,0.5882352941176471,0.8387096774193549,0.7884615384615385,0.8277777777777777,0.7527,0.6184,0.9132,48,28,4
