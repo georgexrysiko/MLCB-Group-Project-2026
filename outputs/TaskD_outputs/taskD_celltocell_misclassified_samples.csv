@@ -1,0 +1,11 @@
+patient_id,sample_id,true_label,sample_score,n_cells,fold,mixed_patient,y_pred,correct,error_type,confidence_margin
+P7,Post_P7,1,0.025710550174137488,231,31,False,0,False,False negative,0.4742894498258625
+P18,Post_P18,0,0.8182085376149107,357,10,False,1,False,False positive,0.31820853761491075
+P3,Post_P3_2,0,0.7658889353417823,358,23,False,1,False,False positive,0.26588893534178226
+P8,Post_P8,1,0.3289501896229152,409,32,False,0,False,False negative,0.17104981037708478
+P29,Pre_P29,1,0.34301623637064893,163,22,False,0,False,False negative,0.15698376362935107
+P8,Pre_P8,1,0.351646136715724,267,32,False,0,False,False negative,0.14835386328427602
+P1,Pre_P1,1,0.42433983983821405,229,1,True,0,False,False negative,0.07566016016178595
+P16,Post_P16,0,0.5670720756358029,463,8,False,1,False,False positive,0.06707207563580286
+P3,Pre_P3,0,0.5160534910098681,245,23,False,1,False,False positive,0.01605349100986808
+P1,Post_P1,1,0.48710490901135123,291,1,True,0,False,False negative,0.012895090988648772

@@ -1,0 +1,7 @@
+feature,spearman_rho_feature_vs_shap,p_value_descriptive_only,direction,n_points,n_folds_with_shap
+IFI6,-0.7779247984583642,0.0,Higher value tends toward non-responder prediction,4800,32
+MT2A,-0.6677762436716915,0.0,Higher value tends toward non-responder prediction,4800,32
+WARS,-0.6237021906227008,0.0,Higher value tends toward non-responder prediction,4800,32
+CCL4L1,-0.6924658362059467,0.0,Higher value tends toward non-responder prediction,4800,32
+CCR7,0.4179237134781256,2.766208766593084e-202,Higher value tends toward responder prediction,4800,32
+ISG15,-0.7276506180439611,0.0,Higher value tends toward non-responder prediction,4800,32

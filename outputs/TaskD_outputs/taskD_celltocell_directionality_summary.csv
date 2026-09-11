@@ -1,0 +1,7 @@
+feature,spearman_rho_feature_vs_shap,p_value_descriptive_only,direction,n_points,n_folds_with_shap
+CCC_Sender_CCL5_to_CCR1,-0.6002011656612432,0.0,Higher value tends toward non-responder prediction,4800,32
+CCC_Sender_HLA-F_to_LILRB2,-0.8828898947799354,0.0,Higher value tends toward non-responder prediction,4800,32
+CCC_Sender_HLA-B_to_KIR3DL2,-0.6247058289979953,0.0,Higher value tends toward non-responder prediction,4800,32
+CCC_Sender_HLA-C_to_KIR2DL3,-0.6702617948940254,0.0,Higher value tends toward non-responder prediction,4800,32
+CCC_Sender_HLA-E_to_KLRC2,-0.7667778212262979,0.0,Higher value tends toward non-responder prediction,4800,32
+CCC_Sender_HLA-G_to_LILRB2,-0.8310926514111031,0.0,Higher value tends toward non-responder prediction,4800,32

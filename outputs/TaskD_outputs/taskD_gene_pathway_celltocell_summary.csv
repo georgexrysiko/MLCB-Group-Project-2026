@@ -1,0 +1,4 @@
+representation,model,sample_ROC_AUC,average_precision,misclassified_samples_at_0.5,corrected_top_feature,top_feature_selection_frequency
+Pathways,LogisticRegression,0.8937381404174574,0.8605063909562181,8,PROGENy_JAK-STAT,1.0
+Genes,XGBoost,0.7172675521821631,0.5604281866160988,10,IFI6,1.0
+Cell-to-cell communication,RandomForest,0.8007590132827322,0.637260480540817,10,CCC_Sender_CCL5_to_CCR1,1.0

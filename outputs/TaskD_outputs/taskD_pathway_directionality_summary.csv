@@ -1,0 +1,7 @@
+feature,spearman_rho_feature_vs_shap,p_value_descriptive_only,direction,n_points,n_folds_with_shap
+PROGENy_JAK-STAT,-0.9634243320713685,0.0,Higher value tends toward non-responder prediction,4800,32
+PROGENy_EGFR,-0.9905274198362594,0.0,Higher value tends toward non-responder prediction,4800,32
+PROGENy_TNFa,-0.9708379123627565,0.0,Higher value tends toward non-responder prediction,4800,32
+PROGENy_NFkB,-0.9519532052714064,0.0,Higher value tends toward non-responder prediction,4800,32
+PROGENy_MAPK,0.9890311303832956,0.0,Higher value tends toward responder prediction,4800,32
+PROGENy_p53,0.9742728454545505,0.0,Higher value tends toward responder prediction,4800,32

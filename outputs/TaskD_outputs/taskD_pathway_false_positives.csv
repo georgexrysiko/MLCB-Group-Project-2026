@@ -1,0 +1,6 @@
+patient_id,sample_id,true_label,sample_score,n_cells,fold,mixed_patient,y_pred,correct,error_type,confidence_margin
+P18,Post_P18,0,0.5801928632343611,357,10,False,1,False,False positive,0.08019286323436114
+P3,Pre_P3,0,0.5531447776607106,245,23,False,1,False,False positive,0.053144777660710574
+P1,Post_P1_2,0,0.5240359972105852,353,1,True,1,False,False positive,0.024035997210585247
+P3,Post_P3_2,0,0.5227653107070804,358,23,False,1,False,False positive,0.022765310707080433
+P5,Post_P5,0,0.5024975028494018,292,29,True,1,False,False positive,0.002497502849401756
