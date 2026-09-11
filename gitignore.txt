@@ -4,7 +4,5 @@
 # b) Melanoma single cells/ Expression matrix Patient (Cell x Patient (post-pre treatment) columns vs. Transcripts rows)
 # Reference for gitignore creation: https://youtu.be/XshDgPGbVKQ?si=NABsR4-LEwChz2TK
 ############################################################
-data/*.txt
-data/*.gtf_withproteinids
-
-outputs/*
+data/
+outputs/
