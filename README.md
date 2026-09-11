@@ -44,10 +44,10 @@ Run the notebooks **in this order**. Each stage's output feeds the next.
 data/
   external/                        cached external resources (CellPhoneDB, DA-seq G1-G11 file)
 outputs/
-  filtered_anndata.h5ad                       Task A output
-  filtered_anndata_pathways.h5ad              Task B.1 output (Task A + 14 PROGENy_* obs columns)
-  differential_pathway_analysis/              Task B.2 statistical tables
-  ccc_level1/                                 Task B.3 sample-level LR matrix, metadata, LR dictionary
+  filtered_anndata.h5ad                            Task A output
+  filtered_anndata_pathways.h5ad                   Task B.1 output (Task A + 14 PROGENy_* obs columns)
+  differential_pathway_analysis/                   Task B.2 statistical tables
+  filtered_anndata_pathways_cellSpecificCCC.h5ad   Task B.3 
   task_b_lopo_no_tuning/                      Task B.4 checkpoints (metrics.json, predictions.csv per condition/model)
   task_b5_explainability/                     Task B.5 SHAP tables and fold-artifact exports
 figures/
@@ -86,7 +86,7 @@ Install with:
 pip install scanpy anndata decoupler scikit-learn xgboost lightgbm statsmodels scipy shap pandas numpy matplotlib seaborn optuna
 ```
 
-External reference data (CellPhoneDB interaction/gene tables, DA-seq G1-G11 cluster assignments) are fetched automatically on first run from public GitHub repositories and cached under `data/external/`; no manual download is required.
+External reference data (CellPhoneDB interaction/gene tables) are fetched automatically on first run from public GitHub repositories and cached under `data/external/`; no manual download is required.
 
 ---
 
@@ -111,8 +111,10 @@ External reference data (CellPhoneDB interaction/gene tables, DA-seq G1-G11 clus
 
 ## 8. Authors
 
-Chrysikopoulos Georgios · Dimitrakou Paraskevi · Karalexi Maria-Evangelia
-Machine Learning in Computational Biology, Spring 2026
+- Chrysikopoulos Georgios
+- Dimitrakou Paraskevi
+- Karalexi Maria-Evangelia
+
 
 ## 9. References
 
