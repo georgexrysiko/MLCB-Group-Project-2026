@@ -1,6 +1,6 @@
 # Predictive and Mechanistic Signatures of Immune Checkpoint Inhibitor Response from Single-Cell RNA-Sequencing of Melanoma
 
-**Machine Learning in Computational Biology — Term Project**
+**Machine Learning in Computational Biology - Term Project**
 
 A re-analysis of the Sade-Feldman et al. melanoma immunotherapy single-cell cohort (GEO accession **GSE120575**), building an end-to-end, leakage-controlled pipeline from raw single-cell counts to predictive modelling, hyperparameter tuning, and model explainability, benchmarked against the independently published PRECISE study (Pinhasi & Yizhak, 2025).
 
@@ -11,10 +11,10 @@ A re-analysis of the Sade-Feldman et al. melanoma immunotherapy single-cell coho
 Response to immune checkpoint inhibitor (ICI) therapy is difficult to predict from pre- or on-treatment biopsies. This project re-analyses 16,291 CD45+ immune cells from 48 biopsies (32 melanoma patients) to answer three questions:
 
 1. **Which biological pathways and cell-to-cell communication axes differ between responders and non-responders?**
-2. **Can a compact, biologically summarised feature set (PROGENy pathway scores) predict response as well as — or better than — raw gene expression, under strict patient-level cross-validation?**
+2. **Can a compact, biologically summarised feature set (PROGENy pathway scores) predict response as well as - or better than - raw gene expression, under strict patient-level cross-validation?**
 3. **What do the resulting models actually learn**, and how does that compare with an independently published gene-level signature for the same dataset?
 
-All modelling uses **Leave-One-Patient-Out (LOPO)** cross-validation — every sample and cell belonging to a held-out patient is excluded from training in that fold — to avoid patient-level leakage, which is a common and serious pitfall with this kind of repeated-measures single-cell cohort.
+All modelling uses **Leave-One-Patient-Out (LOPO)** cross-validation - every sample and cell belonging to a held-out patient is excluded from training in that fold - to avoid patient-level leakage, which is a common and serious pitfall with this kind of repeated-measures single-cell cohort.
 
 ---
 
@@ -32,7 +32,7 @@ Run the notebooks **in this order**. Each stage's output feeds the next.
 | **B.5** | `TaskB_5_SHAP___ErrorAnalysis.ipynb` | SHAP explainability + error analysis for the best pathway and best gene pipelines from Task B.4 (no-tuning models). |
 | **C** | `TaskC_Tuning_*.ipynb` | Per-fold **Optuna hyperparameter tuning** (inner patient-grouped CV) for pathway and gene feature sets. |
 | **D** | `TaskD_Explainability_*.ipynb` | SHAP explainability + error analysis for the **tuned** best pipelines from Task C. |
-| shared | `ablation_shared.py` | Single source of truth for the LOPO framework (config, feature builders, `run_condition_all_models`, checkpointing) — imported by both the Task B.4 baseline and any downstream ablation extension, to guarantee identical methodology across notebooks. |
+| shared | `ablation_shared.py` | Single source of truth for the LOPO framework (config, feature builders, `run_condition_all_models`, checkpointing) - imported by both the Task B.4 baseline and any downstream ablation extension, to guarantee identical methodology across notebooks. |
 
 > **Why a shared module?** Task B.4's ablation logic (feature builders, model parameters, the LOPO loop itself) must be byte-for-byte identical wherever it is reused (e.g. for a future CCC ablation or a diagnostic test), otherwise any AUC difference between conditions cannot be cleanly attributed to the feature representation. `ablation_shared.py` exists specifically to remove that risk.
 
@@ -116,6 +116,5 @@ External reference data (CellPhoneDB interaction/gene tables) are fetched automa
 - Karalexi Maria-Evangelia
 
 
-## 9. References
-
-Full numbered reference list is provided in the project report. Primary sources: Sade-Feldman et al., *Cell* (2018) [dataset]; Pinhasi & Yizhak, *npj Precision Oncology* (2025) [PRECISE, benchmark comparison]; Efremova et al., *Nature Protocols* (2020) [CellPhoneDB]; Wolf et al., *Genome Biology* (2018) [Scanpy]; Badia-i-Mompel et al., *Bioinformatics Advances* (2022) [decoupler/PROGENy].
+## Main References
+Sade-Feldman et al., *Cell* (2018) [dataset]; Pinhasi & Yizhak, *npj Precision Oncology* (2025) [PRECISE, benchmark comparison];
