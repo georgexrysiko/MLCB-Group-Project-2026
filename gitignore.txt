@@ -1,0 +1,12 @@
+# Ignoring the data files due to their size
+# 1. Large data files  
+# a) Patient Id single cells.txt
+# b) Melanoma single cells/ Expression matrix Patient (Cell x Patient (post-pre treatment) columns vs. Transcripts rows)
+# Reference for gitignore creation: https://youtu.be/XshDgPGbVKQ?si=NABsR4-LEwChz2TK
+############################################################
+data/*.txt
+data/*.gtf_withproteinids
+outputs/*.txt
+outputs/*.csv
+outputs/*.h5ad
+outputs/*.npz
