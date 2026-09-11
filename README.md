@@ -38,27 +38,39 @@ Run the notebooks **in this order**. Each stage's output feeds the next.
 
 ---
 
-## 3. Data and Outputs
+## 3. Required Input Data
 
+- `GSE120575_Sade_Feldman_melanoma_single_cells_TPM_GEO.txt`
+  - Single-cell expression matrix containing log2(TPM+1) values.
+
+- `GSE120575_patient_ID_single_cells.txt`
+  - Metadata containing the corresponding cell, sample, patient, response,
+    treatment timepoint and therapy information.
+
+
+# 4. Generated Outputs
 ```
 data/
-  external/                        cached external resources (CellPhoneDB, DA-seq G1-G11 file)
-outputs/
-  filtered_anndata.h5ad                            Task A output
-  filtered_anndata_pathways.h5ad                   Task B.1 output (Task A + 14 PROGENy_* obs columns)
-  differential_pathway_analysis/                   Task B.2 statistical tables
-  filtered_anndata_pathways_cellSpecificCCC.h5ad   Task B.3 
-  task_b_lopo_no_tuning/                      Task B.4 checkpoints (metrics.json, predictions.csv per condition/model)
-  task_b5_explainability/                     Task B.5 SHAP tables and fold-artifact exports
-figures/
-  taska_all_figures/, taskb_2_all_figures/, ... one consolidated subfolder per task
-```
+    external/                                  cached external resources
 
-All expensive steps (LOPO folds, bootstrap draws) are **checkpointed to disk** keyed by a fixed `RUN_ID`; re-running a notebook re-uses existing results instead of recomputing them, as long as `RUN_ID` and the results directory are left unchanged.
+outputs/                                          generated locally after running the notebooks
+    filtered_anndata.h5ad                         Task A output
+    filtered_anndata_pathways.h5ad                Task B.1 output
+    differential_pathway_analysis/                Task B.2 statistical outputs
+    filtered_anndata_pathways_cellSpecificCCC.h5ad
+                                                  Task B.3 output
+    task_b_lopo_no_tuning/                        Task B.4 model outputs/checkpoints
+    task_b5_explainability/                       Task B.5 SHAP and error-analysis outputs
+
+figures/                                       generated figures
+    taska_all_figures/
+    taskb_2_all_figures/...
+```
+**Note:** The data/ and outputs/ directories are excluded from Git tracking due to file size. The output files (of Task A to Task B.5) shown above are therefore not included in the repository and are generated locally after downloading the required input data and running the notebooks in the specified order.
 
 ---
 
-## 4. Key Findings
+## 5. Key Findings
 
 - **JAK-STAT pathway activity is the single strongest and most consistently replicated biological correlate of non-response**, confirmed by (i) a patient-aware mixed-effects model, (ii) two independent Mann-Whitney sensitivity analyses, and (iii) SHAP explainability on an independently trained predictive model. EGFR and PI3K (higher in non-responders) and MAPK (higher in responders) are secondary, equally robust findings.
 - A compact **14-feature PROGENy pathway representation** matched the original PRECISE paper's best full-transcriptome result (AUC 0.894 vs. 0.89) using ~700-fold fewer features and a stricter, patient-grouped validation scheme.
@@ -69,7 +81,7 @@ See the accompanying project report for full methodology, statistics, and figure
 
 ---
 
-## 5. Requirements
+## 6. Requirements
 
 ```
 python >= 3.10
@@ -90,7 +102,7 @@ External reference data (CellPhoneDB interaction/gene tables) are fetched automa
 
 ---
 
-## 6. Reproducibility Notes
+## 7. Reproducibility Notes
 
 - A single `SEED = 42` is used throughout (NumPy, scikit-learn, Optuna).
 - All file paths are relative (`../data`, `../outputs`, `../figures`); no absolute/user-specific paths.
@@ -100,7 +112,7 @@ External reference data (CellPhoneDB interaction/gene tables) are fetched automa
 
 ---
 
-## 7. Known Limitations
+## 8. Known Limitations
 
 - Small cohort (48 samples / 32 patients): bootstrap 95% CIs on AUC are wide (±0.1–0.15) and should be read as indicative, not tightly conclusive.
 - No external validation cohort; generalisability beyond this dataset is untested.
@@ -109,12 +121,11 @@ External reference data (CellPhoneDB interaction/gene tables) are fetched automa
 
 ---
 
-## 8. Authors
+## 9. Authors
 
 - Chrysikopoulos Georgios
 - Dimitrakou Paraskevi
 - Karalexi Maria-Evangelia
-
 
 ## Main References
 Sade-Feldman et al., *Cell* (2018) [dataset]; Pinhasi & Yizhak, *npj Precision Oncology* (2025) [PRECISE, benchmark comparison];
