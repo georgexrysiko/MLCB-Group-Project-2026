@@ -32,10 +32,6 @@ Run the notebooks **in this order**. Each stage's output feeds the next.
 | **B.5** | `TaskB_5_SHAP___ErrorAnalysis.ipynb` | SHAP explainability + error analysis for the best pathway and best gene pipelines from Task B.4 (no-tuning models). |
 | **C** | `TaskC_Tuning_*.ipynb` | Per-fold **Optuna hyperparameter tuning** (inner patient-grouped CV) for pathway and gene feature sets. |
 | **D** | `TaskD_Explainability_*.ipynb` | SHAP explainability + error analysis for the **tuned** best pipelines from Task C. |
-| shared | `ablation_shared.py` | Single source of truth for the LOPO framework (config, feature builders, `run_condition_all_models`, checkpointing) - imported by both the Task B.4 baseline and any downstream ablation extension, to guarantee identical methodology across notebooks. |
-
-> **Why a shared module?** Task B.4's ablation logic (feature builders, model parameters, the LOPO loop itself) must be byte-for-byte identical wherever it is reused (e.g. for a future CCC ablation or a diagnostic test), otherwise any AUC difference between conditions cannot be cleanly attributed to the feature representation. `ablation_shared.py` exists specifically to remove that risk.
-
 ---
 
 ## 3. Required Input Data
