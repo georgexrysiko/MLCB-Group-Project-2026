@@ -12,7 +12,7 @@ Response to immune checkpoint inhibitor (ICI) therapy is difficult to predict fr
 
 1. **Which biological pathways and cell-to-cell communication axes differ between responders and non-responders?**
 2. **Can a compact, biologically summarised feature set (PROGENy pathway scores) predict response as well as - or better than - raw gene expression, under strict patient-level cross-validation?**
-3. **What do the resulting models actually learn**, and how does that compare with an independently published gene-level signature for the same dataset?
+3. **What do the resulting models actually learn**?
 
 All modelling uses **Leave-One-Patient-Out (LOPO)** cross-validation - every sample and cell belonging to a held-out patient is excluded from training in that fold - to avoid patient-level leakage, which is a common and serious pitfall with this kind of repeated-measures single-cell cohort.
 
@@ -32,10 +32,6 @@ Run the notebooks **in this order**. Each stage's output feeds the next.
 | **B.5** | `TaskB_5_SHAP___ErrorAnalysis.ipynb` | SHAP explainability + error analysis for the best pathway and best gene pipelines from Task B.4 (no-tuning models). |
 | **C** | `TaskC_Tuning_*.ipynb` | Per-fold **Optuna hyperparameter tuning** (inner patient-grouped CV) for pathway and gene feature sets. |
 | **D** | `TaskD_Explainability_*.ipynb` | SHAP explainability + error analysis for the **tuned** best pipelines from Task C. |
-| shared | `ablation_shared.py` | Single source of truth for the LOPO framework (config, feature builders, `run_condition_all_models`, checkpointing) - imported by both the Task B.4 baseline and any downstream ablation extension, to guarantee identical methodology across notebooks. |
-
-> **Why a shared module?** Task B.4's ablation logic (feature builders, model parameters, the LOPO loop itself) must be byte-for-byte identical wherever it is reused (e.g. for a future CCC ablation or a diagnostic test), otherwise any AUC difference between conditions cannot be cleanly attributed to the feature representation. `ablation_shared.py` exists specifically to remove that risk.
-
 ---
 
 ## 3. Required Input Data
@@ -48,7 +44,7 @@ Run the notebooks **in this order**. Each stage's output feeds the next.
     treatment timepoint and therapy information.
 
 
-# 4. Generated Outputs
+## 4. Generated Outputs
 ```
 data/
     external/                                  cached external resources
@@ -75,9 +71,6 @@ figures/                                       generated figures
 - **JAK-STAT pathway activity is the single strongest and most consistently replicated biological correlate of non-response**, confirmed by (i) a patient-aware mixed-effects model, (ii) two independent Mann-Whitney sensitivity analyses, and (iii) SHAP explainability on an independently trained predictive model. EGFR and PI3K (higher in non-responders) and MAPK (higher in responders) are secondary, equally robust findings.
 - A compact **14-feature PROGENy pathway representation** matched the original PRECISE paper's best full-transcriptome result (AUC 0.894 vs. 0.89) using ~700-fold fewer features and a stricter, patient-grouped validation scheme.
 - The **cell-cell communication (CCC)** feature family is biologically motivated and response-independent by construction, but underperformed both genes and pathways (best AUC 0.801) in its current per-sample co-expression form; SHAP indicates real signal (chemokine- and HLA-mediated axes) that a more pathway-like aggregation may better exploit.
-- The JAK-STAT/interferon-response axis identified here **converges with an independently published Boruta-confirmed 11-gene signature** for the same dataset (Pinhasi & Yizhak, 2025), strengthening confidence that this is a genuine, dataset-independent signal.
-
-See the accompanying project report for full methodology, statistics, and figures.
 
 ---
 
@@ -102,17 +95,8 @@ External reference data (CellPhoneDB interaction/gene tables) are fetched automa
 
 ---
 
-## 7. Reproducibility Notes
 
-- A single `SEED = 42` is used throughout (NumPy, scikit-learn, Optuna).
-- All file paths are relative (`../data`, `../outputs`, `../figures`); no absolute/user-specific paths.
-- Every LOPO fold includes an explicit patient/sample-overlap leakage check that raises an error if violated.
-- Adaptive preprocessing (PCA, mutual-information ranking, RFE, scaling) is refit **inside every outer fold**, on training patients only.
-- `response == 1` is explicitly verified to correspond to `response_label == "Responder"` before being used as the positive class anywhere (Sensitivity/Specificity, SHAP direction).
-
----
-
-## 8. Known Limitations
+## 7. Known Limitations
 
 - Small cohort (48 samples / 32 patients): bootstrap 95% CIs on AUC are wide (±0.1–0.15) and should be read as indicative, not tightly conclusive.
 - No external validation cohort; generalisability beyond this dataset is untested.
@@ -121,11 +105,8 @@ External reference data (CellPhoneDB interaction/gene tables) are fetched automa
 
 ---
 
-## 9. Authors
+## 8. Authors
 
 - Chrysikopoulos Georgios
 - Dimitrakou Paraskevi
 - Karalexi Maria-Evangelia
-
-## Main References
-Sade-Feldman et al., *Cell* (2018) [dataset]; Pinhasi & Yizhak, *npj Precision Oncology* (2025) [PRECISE, benchmark comparison];
