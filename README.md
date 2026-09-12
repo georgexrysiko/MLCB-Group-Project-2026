@@ -110,7 +110,3 @@ External reference data (CellPhoneDB interaction/gene tables) are fetched automa
 - Chrysikopoulos Georgios
 - Dimitrakou Paraskevi
 - Karalexi Maria-Evangelia
-
-## Main References
-Pinhasi, A., Yizhak, K. Uncovering gene and cellular signatures of immune checkpoint response via machine learning and single-cell RNA-seq. npj Precis. Onc. 9, 95 (2025). https://doi.org/10.1038/s41698-025-00883-z
-
