@@ -44,7 +44,7 @@ Run the notebooks **in this order**. Each stage's output feeds the next.
     treatment timepoint and therapy information.
 
 
-# 4. Generated Outputs
+## 4. Generated Outputs
 ```
 data/
     external/                                  cached external resources
